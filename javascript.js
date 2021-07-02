@@ -172,14 +172,13 @@ function allowDrop(ev) {
         }
     }
 
-    let data = ev.dataTransfer.getData('text');
     let targetId = ev.target.id;
-    if(data[0] ==='b' && sideMove === 'B' || data[0] === 'w' && sideMove === 'W')
+    if(draggedPiece.id[0] ==='b' && sideMove === 'B' || draggedPiece.id[0] === 'w' && sideMove === 'W')
     {
         targetParentId = document.getElementById(targetId).closest('div').id;
-        switch(data[1]){
+        switch(draggedPiece.id[1]){
             case 'P': {
-                if(data[0] === 'w') {
+                if(draggedPiece.id[0] === 'w') {
                     if(targetId[0] === pieceParentId[0]) {
                         if(parseInt(targetId[1])-1 === parseInt(pieceParentId[1])){
                             ev.preventDefault();
@@ -192,7 +191,7 @@ function allowDrop(ev) {
                         }
                     }
                     
-                }else if(data[0] === 'b') {
+                }else if(draggedPiece.id[0] === 'b') {
                     if(targetId[0] === pieceParentId[0]) {
                         if(parseInt(targetId[1])+1 === parseInt(pieceParentId[1])){
                             ev.preventDefault();
@@ -209,14 +208,14 @@ function allowDrop(ev) {
             }break;
 
             case 'K': {
-                if(data[0] === 'w'){
+                if(draggedPiece.id[0] === 'w'){
                     if(Math.abs(parseInt(targetId[1]) - parseInt(pieceParentId[1])) < 2 && Math.abs(parseInt(targetId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) < 2){
                         ev.preventDefault();
                     }else if(Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) < 2 && Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) < 2 && targetId[0] === 'b'){
                         ev.preventDefault();
                     }
 
-                }else if(data[0] === 'b'){
+                }else if(draggedPiece.id[0] === 'b'){
                     if(Math.abs(parseInt(targetId[1]) - parseInt(pieceParentId[1])) < 2 && Math.abs(parseInt(targetId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) < 2){
                         ev.preventDefault();
                     }else if(Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) < 2 && Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) < 2 && targetId[0] === 'w'){
@@ -226,7 +225,31 @@ function allowDrop(ev) {
             }break;
 
             case 'B': {
-                    
+                    if(draggedPiece.id[0] === 'w'){
+                        if( Math.abs(parseInt(targetId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0) {
+                            let Vector_Veri = parseInt(targetId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
+                            let Vector_Hori = parseInt(targetId[1]) - parseInt(pieceParentId[1]);
+                            let TileRouteId
+                                if(Vector_Hori > 0 && Vector_Veri > 0){
+                                    TileRouteId = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + Vector_Veri) + (parseInt(pieceParentId[1]) + Vector_Hori);
+                                    console.log(TileRouteId);
+                                    console.log('najs');
+                                }
+                                // } else if(){
+
+                                // } else if(){
+
+                                // } else if(){
+                                    
+                                // }
+                            
+                            ev.preventDefault();
+                        }else if(Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && targetId[0] === 'b'){
+                            ev.preventDefault();
+                        }
+                    } else if(draggedPiece.id[0] === 'b'){
+
+                    }
             }break;
 
             case 'R': {
