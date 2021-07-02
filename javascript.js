@@ -365,12 +365,250 @@ function allowDrop(ev) {
 
             //Czy Wieza
             case 'R': {
+                if(draggedPiece.id[0] === 'w'){
 
+                    let CanVertical = false;
+
+                    let Vector_Veri = parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
+                    let Vector_Hori = parseInt(targetParentId[1]) - parseInt(pieceParentId[1]);
+
+                    let tileVerticalRouteId = new Array();
+
+                    if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) === 0 && pieceParentId.toString() !== targetParentId.toString() || Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && pieceParentId.toString() !== targetParentId.toString()) {
+
+                        for(let i=1;i <= Math.abs(Vector_Hori) + Math.abs(Vector_Veri);i++)
+                                {
+                                    if(Vector_Veri > 0 && Vector_Hori === 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]));
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori === 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]));
+                                    }
+                                    if(Vector_Veri === 0 && Vector_Hori > 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri === 0 && Vector_Hori < 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                }
+                                console.log(tileVerticalRouteId);
+
+                                CanVertical = true;
+                                tileVerticalRouteId.forEach(element => {
+                                    let tileCheck = document.getElementById(element);
+                                        if(tileCheck.children.length !== 0 ){
+                                            let childrenId = tileCheck.children[0].id.toString();
+                                            if(childrenId[0] === 'b' && tileVerticalRouteId[tileVerticalRouteId.length-1] === element){} else{
+                                                CanVertical = false;
+                                            }
+                                    }
+                                })
+                }
+                if(CanVertical){
+                    ev.preventDefault();
+                }
+            }
+
+                else if(draggedPiece.id[0] === 'b'){
+
+                    let CanVertical = false;
+
+                    let Vector_Veri = parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
+                    let Vector_Hori = parseInt(targetParentId[1]) - parseInt(pieceParentId[1]);
+
+                    let tileVerticalRouteId = new Array();
+                    if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) === 0 && pieceParentId.toString() !== targetParentId.toString() || Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && pieceParentId.toString() !== targetParentId.toString()) {
+
+                        for(let i=1;i <= Math.abs(Vector_Hori) + Math.abs(Vector_Veri);i++){
+                            if(Vector_Veri > 0 && Vector_Hori === 0){
+                                tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]));
+                            }
+                            if(Vector_Veri < 0 && Vector_Hori === 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]));
+                            }
+                            if(Vector_Veri === 0 && Vector_Hori > 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) + i);
+                            }
+                            if(Vector_Veri === 0 && Vector_Hori < 0){
+                                tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) - i);
+                            }
+                        }
+                        console.log(tileVerticalRouteId);
+
+                        CanVertical = true;
+                        tileVerticalRouteId.forEach(element => {
+                            let tileCheck = document.getElementById(element);
+                            if(tileCheck.children.length !== 0 ){
+                                let childrenId = tileCheck.children[0].id.toString();
+                                if(childrenId[0] === 'w' && tileVerticalRouteId[tileVerticalRouteId.length-1] === element){} else{
+                                    CanVertical = false;
+                                }
+                            }
+                        })
+                    }
+                        if(CanVertical){
+                            ev.preventDefault();
+                        }
+                }
             }break;
 
-            //Czy Hetman
+
+        //Czy Hetman
             case 'Q': {
+                if(draggedPiece.id[0] === 'w'){
+
+                    let CanVertical = false;
+                    let CanDiagonal = false;
+
+                    let Vector_Veri = parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
+                    let Vector_Hori = parseInt(targetParentId[1]) - parseInt(pieceParentId[1]);
+
+                    let tileDiagonalRouteId = new Array();
+                    let tileVerticalRouteId = new Array();
+
+                    if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && parseInt(targetParentId[1]) - parseInt(pieceParentId[1]) !== 0) {
+
+                        for(let i=1;i<=Math.abs(Vector_Hori);i++)
+                                {
+                                    if(Vector_Veri > 0 && Vector_Hori > 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori > 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri > 0 && Vector_Hori < 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori < 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                }
+                                CanDiagonal = true;
+                                tileDiagonalRouteId.forEach(element => {
+                                    let tileCheck = document.getElementById(element);
+                                        if(tileCheck.children.length !== 0 ){
+                                            let childrenId = tileCheck.children[0].id.toString();
+                                            if(childrenId[0] === 'b' && tileDiagonalRouteId[tileDiagonalRouteId.length-1] === element){} else{
+                                                CanDiagonal = false;
+                                            }
+                                    }
+                                })
+                                
+                    }
+
+                    if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) === 0 && pieceParentId.toString() !== targetParentId.toString() || Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && pieceParentId.toString() !== targetParentId.toString()) {
+
+                        for(let i=1;i <= Math.abs(Vector_Hori) + Math.abs(Vector_Veri);i++)
+                                {
+                                    if(Vector_Veri > 0 && Vector_Hori === 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]));
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori === 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]));
+                                    }
+                                    if(Vector_Veri === 0 && Vector_Hori > 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri === 0 && Vector_Hori < 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                }
+                                console.log(tileVerticalRouteId);
+
+                                CanVertical = true;
+                                tileVerticalRouteId.forEach(element => {
+                                    let tileCheck = document.getElementById(element);
+                                        if(tileCheck.children.length !== 0 ){
+                                            let childrenId = tileCheck.children[0].id.toString();
+                                            if(childrenId[0] === 'b' && tileVerticalRouteId[tileVerticalRouteId.length-1] === element){} else{
+                                                CanVertical = false;
+                                            }
+                                    }
+                                })
+                    }
+
+                    if(CanDiagonal || CanVertical){
+                        ev.preventDefault();
+                    }
+                }
                 
+                if(draggedPiece.id[0] === 'b'){
+
+                    let CanVertical = false;
+                    let CanDiagonal = false;
+
+                    let Vector_Veri = parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
+                    let Vector_Hori = parseInt(targetParentId[1]) - parseInt(pieceParentId[1]);
+
+                    let tileDiagonalRouteId = new Array();
+                    let tileVerticalRouteId = new Array();
+
+                    if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && parseInt(targetParentId[1]) - parseInt(pieceParentId[1]) !== 0) {
+
+                        for(let i=1;i<=Math.abs(Vector_Hori);i++)
+                                {
+                                    if(Vector_Veri > 0 && Vector_Hori > 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori > 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri > 0 && Vector_Hori < 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori < 0){
+                                        tileDiagonalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                }
+                                CanDiagonal = true;
+                                tileDiagonalRouteId.forEach(element => {
+                                    let tileCheck = document.getElementById(element);
+                                        if(tileCheck.children.length !== 0 ){
+                                            let childrenId = tileCheck.children[0].id.toString();
+                                            if(childrenId[0] === 'w' && tileDiagonalRouteId[tileDiagonalRouteId.length-1] === element){} else{
+                                                CanDiagonal = false;
+                                            }
+                                    }
+                                })
+                                
+                    }
+
+                    if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) === 0 && pieceParentId.toString() !== targetParentId.toString() || Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && pieceParentId.toString() !== targetParentId.toString()) {
+                        
+                        for(let i=1;i <= Math.abs(Vector_Hori) + Math.abs(Vector_Veri);i++)
+                                {
+                                    if(Vector_Veri > 0 && Vector_Hori === 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]));
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori === 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]));
+                                    }
+                                    if(Vector_Veri === 0 && Vector_Hori > 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri === 0 && Vector_Hori < 0){
+                                        tileVerticalRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0))) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                }
+                                console.log(tileVerticalRouteId);
+
+                                CanVertical = true;
+                                tileVerticalRouteId.forEach(element => {
+                                    let tileCheck = document.getElementById(element);
+                                        if(tileCheck.children.length !== 0 ){
+                                            let childrenId = tileCheck.children[0].id.toString();
+                                            if(childrenId[0] === 'w' && tileVerticalRouteId[tileVerticalRouteId.length-1] === element){} else{
+                                                CanVertical = false;
+                                            }
+                                    }
+                                })
+                    }
+
+                    if(CanDiagonal || CanVertical){
+                        ev.preventDefault();
+                    }
+                }
+
             }break;
 
             //Czy Skoczek
