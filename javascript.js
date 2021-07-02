@@ -1,25 +1,45 @@
 
 window.onload = building;
 
+// Kogo kolej (W - white, B - black) 
 let sideMove = 'W';
+
+//Czy gracz draguje
 let isMoving = false;
+
+//Id figury ktora gracz sie porusza
 let pieceId;
+
+//Id pola na ktorym stala / stoi figura ktora gracz sie porusza
 let pieceParentId;
+
+//Czy wartosci na poczatku allowDrop() zostaly ustanowione
 let isParentIdSettled = false;
+
+//Figura ktora gracz dragguje;
 let draggedPiece;
+
+//Id pola, na ktorym stoi figura lub nie
 let targetParentId;
 
+
+//Funkcja ta buduje cala szachownice i oznacza ja oraz figury odpowiednimi id oraz klasami
 function building() {
     let chessboard = document.getElementById('chessBoard');
     let column = 1;
     let notation = 'A';
     for(let i = 0;i<64;i++) {
+
+        //Tworzenie pol i figur
         let TILE = document.createElement('div');
         let Piece = document.createElement('img');
         TILE.className = 'chessTiles';
         Piece.className = 'Piece';
         Piece.draggable = true;
+
+        //Parametr sprawdzajacy czy gracz juz sie ruszyl tym pionkiem, 0 - nie 1 - tak
         Piece.alt = '0';
+
         chessboard.append(TILE);
         if(i%8===0 && i!==0){
             column++;
@@ -36,19 +56,22 @@ function building() {
         }
         TILE.id = `${notation}${9-column}`
 
-
+        //Ustawianie figur i kolorow pol na szachownicy
+        //kolory
         if(i%2===0 && column%2===1){
             TILE.style.backgroundColor = 'white';
         }else if(i%2===1 && column%2===0) {
             TILE.style.backgroundColor = 'white';
         }
 
+        //kolory
         if(i%2===1 && column%2===1){
             TILE.style.backgroundColor = '#b58863';
         }else if(i%2===0 && column%2===0) {
             TILE.style.backgroundColor = '#b58863';
         }
 
+        //Wieze
         if(i===0&&column===1||i===7&&column===1){
             Piece.src = 'Pieces/black_rook.png';
             Piece.id = 'bR' + (i%2+1);
@@ -59,7 +82,7 @@ function building() {
             TILE.append(Piece);
         }
 
-
+        //Skoczki
         if(i%8===1&&column===1||i%8===6&&column===1){
             Piece.src = 'Pieces/black_knight.png';
             Piece.id = 'bN' + (i%2+1);
@@ -70,6 +93,7 @@ function building() {
             TILE.append(Piece);
         }
 
+        //Gonce
         if(i%8===2&&column===1||i%8===5&&column===1){
             Piece.src = 'Pieces/black_bishop.png';
             Piece.id = 'bB' + (i%2+1);
@@ -80,6 +104,7 @@ function building() {
             TILE.append(Piece);
         }
 
+        //Hetmany
         if(i%8===3&&column===1){
             Piece.src = 'Pieces/black_queen.png';
             Piece.id = 'bQ' + (i%2+1);
@@ -90,6 +115,7 @@ function building() {
             TILE.append(Piece);
         }
 
+        //Krole
         if(i%8===4&&column===1){
             Piece.src = 'Pieces/black_king.png';
             Piece.id = 'bK' + (i%2+1);
@@ -100,10 +126,7 @@ function building() {
             TILE.append(Piece);
         }
 
-
-
-
-
+        //Pionki
         if(column === 2){
             Piece.src = 'Pieces/black_pawn.png';
             Piece.id = 'bP' + (i%8+1);
@@ -114,18 +137,19 @@ function building() {
             TILE.append(Piece)
         }
     }
+        //odniesienia do wszystkich elementow z klasy
         let tileRef = document.getElementsByClassName('chessTiles');
         let pieceRef = document.getElementsByClassName('Piece');
-        let jPiece = 0;
+
+        //Dodawanie zawiadomienia do wszystkich odpowiednich elementow na szachownicy
         for(let j=0;j<64;j++){
             tileRef[j].addEventListener('drop', drop);
             tileRef[j].addEventListener('dragover', allowDrop);
             pieceRef[j%32].addEventListener('dragstart', drag);
-            if(jPiece<32){jPiece++;}
         }
 }
 
-
+//Funkcja drop, aktywuje sie gdy uzytkownik upusci figure
 function drop(ev) {
     ev.preventDefault();
     draggedPiece.alt = '1';
@@ -145,24 +169,17 @@ function drop(ev) {
         }
 }
 
+//Ondragstart, dodatkowo resetuje parametry ciagnietej poprzednio figury 
 function drag(ev) {
     ev.dataTransfer.setData('text', ev.target.id);
     isParentIdSettled = false;
 }
 
 
-
-
-
-
-
-
-
-
-
-
+//Ondragover, cala logika tego kiedy gracz moze sie poruszyc, czym i gdzie
 function allowDrop(ev) {
 
+    //Ustanawianie parametrow, Id figury, Figury ciagnietej, Id punktu startowego figury
     if(!isParentIdSettled){
         pieceId = ev.target.id;
         draggedPiece = document.getElementById(pieceId);
@@ -172,11 +189,19 @@ function allowDrop(ev) {
         }
     }
 
+    //Ustanawianie tego na co gracz patrzy (myszka)
     let targetId = ev.target.id;
+
+    // Test sprawdzajacy czy porusza sie odpowiedni gracz w zaleznosci od tury
     if(draggedPiece.id[0] ==='b' && sideMove === 'B' || draggedPiece.id[0] === 'w' && sideMove === 'W')
     {
+        //Parametr id pola na ktorym stoi inna figura lub nie
         targetParentId = document.getElementById(targetId).closest('div').id;
+
+        //Sprawdzanie ktora figura sie gracz porusza
         switch(draggedPiece.id[1]){
+
+            //Czy Pionek
             case 'P': {
                 if(draggedPiece.id[0] === 'w') {
                     if(targetId[0] === pieceParentId[0]) {
@@ -207,6 +232,7 @@ function allowDrop(ev) {
                 }
             }break;
 
+            //Czy krol
             case 'K': {
                 if(draggedPiece.id[0] === 'w'){
                     if(Math.abs(parseInt(targetId[1]) - parseInt(pieceParentId[1])) < 2 && Math.abs(parseInt(targetId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) < 2){
@@ -224,42 +250,130 @@ function allowDrop(ev) {
                 }
             }break;
 
+            //Czy goniec
             case 'B': {
                     if(draggedPiece.id[0] === 'w'){
-                        if( Math.abs(parseInt(targetId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0) {
-                            let Vector_Veri = parseInt(targetId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
-                            let Vector_Hori = parseInt(targetId[1]) - parseInt(pieceParentId[1]);
-                            let TileRouteId
-                                if(Vector_Hori > 0 && Vector_Veri > 0){
-                                    TileRouteId = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + Vector_Veri) + (parseInt(pieceParentId[1]) + Vector_Hori);
-                                    console.log(TileRouteId);
-                                    console.log('najs');
+                        //Wektor Poziomy
+                        let Vector_Veri = parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
+
+                        //Wektor Pionowy
+                        let Vector_Hori = parseInt(targetParentId[1]) - parseInt(pieceParentId[1]);
+
+                        //Trasa Routingu ;)
+                        let TileRouteId = new Array();
+
+                        //Oznajmia czy na wybranej trasie nie stoi niepozadana przeszkoda - figura
+                        let children = false;
+
+                            //A z pola A1, pole B2      2 z pola B2,   1 z pola A1
+                            //Czy |ASCII(A) - ASCII(B)| - |2            -            1| === 0   lub   |ASCII(B) - ASCII(A)| - |1            -            2| === 0
+                            if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && parseInt(targetParentId[1]) - parseInt(pieceParentId[1]) !== 0) {
+                                
+                                //Wypisywanie koordynatow sciezki w zaleznosci od wektory, czy - lub +
+                                for(let i=1;i<=Math.abs(Vector_Hori);i++)
+                                {
+                                    if(Vector_Veri > 0 && Vector_Hori > 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) + i);
+                                    }else
+                                    if(Vector_Veri < 0 && Vector_Hori > 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) + i);
+                                    }else
+                                    if(Vector_Veri > 0 && Vector_Hori < 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) - i);
+                                    }else
+                                    if(Vector_Veri < 0 && Vector_Hori < 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) - i);
+                                    }
                                 }
-                                // } else if(){
 
-                                // } else if(){
+                                    //Dla kazdego pola na trasie sprawdz:
+                                    TileRouteId.forEach(element => {
+                                    let tileCheck = document.getElementById(element);
 
-                                // } else if(){
-                                    
-                                // }
+                                    //Czy wogole wybrane pole na trasie ma dziecko?
+                                    if(tileCheck.children.length !== 0 ){
+                                        let childrenId = tileCheck.children[0].id.toString();
+
+                                        //Czy tym dzieckiem jest figura mozliwa do zbicia ?
+                                        if(childrenId[0] === 'b' && TileRouteId[TileRouteId.length-1] === element){} else{
+                                            children = true;
+                                        }
+                                    } 
+                                });
+
+                                if(!children){
+                                    ev.preventDefault();
+                                }
                             
-                            ev.preventDefault();
-                        }else if(Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && targetId[0] === 'b'){
-                            ev.preventDefault();
                         }
                     } else if(draggedPiece.id[0] === 'b'){
+                        //Wektor Poziomy
+                        let Vector_Veri = parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0));
 
-                    }
-            }break;
+                        //Wektor Pionowy
+                        let Vector_Hori = parseInt(targetParentId[1]) - parseInt(pieceParentId[1]);
 
+                        //Trasa Routingu ;)
+                        let TileRouteId = new Array();
+
+                        //Oznajmia czy na wybranej trasie nie stoi niepozadana przeszkoda - figura
+                        let children = false;
+
+                            //A z pola A1, pole B2      2 z pola B2,   1 z pola A1
+                            //Czy |ASCII(A) - ASCII(B)| - |2            -            1| === 0   lub   |ASCII(B) - ASCII(A)| - |1            -            2| === 0
+                            if( Math.abs(parseInt(targetParentId[1]) - parseInt(pieceParentId[1])) - Math.abs(parseInt(targetParentId[0].charCodeAt(0)) - parseInt(pieceParentId[0].charCodeAt(0))) === 0 && parseInt(targetParentId[1]) - parseInt(pieceParentId[1]) !== 0) {
+
+                                //Wypisywanie koordynatow sciezki w zaleznosci od wektory, czy - lub +
+                                for(let i=1;i<=Math.abs(Vector_Hori);i++)
+                                {
+                                    if(Vector_Veri > 0 && Vector_Hori > 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori > 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) + i);
+                                    }
+                                    if(Vector_Veri > 0 && Vector_Hori < 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) + i) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                    if(Vector_Veri < 0 && Vector_Hori < 0){
+                                        TileRouteId[i-1] = String.fromCharCode(parseInt(pieceParentId[0].charCodeAt(0)) - i) + (parseInt(pieceParentId[1]) - i);
+                                    }
+                                }
+
+                                    //Dla kazdego pola na trasie sprawdz:
+                                    TileRouteId.forEach(element => {
+                                    let tileCheck = document.getElementById(element);
+
+                                    //Czy wogole wybrane pole na trasie ma dziecko?
+                                    if(tileCheck.children.length !== 0 ){
+                                        let childrenId = tileCheck.children[0].id.toString();
+
+                                        //Czy tym dzieckiem jest figura mozliwa do zbicia ?
+                                        if(childrenId[0] === 'w' && TileRouteId[TileRouteId.length-1] === element){} else{
+                                            children = true;
+                                        }
+                                    } 
+                                });
+                                
+                                //Umozliwienie dropu dla gonca
+                                if(!children){
+                                    ev.preventDefault();
+                                }
+                            }
+                        }
+                }break;
+
+            //Czy Wieza
             case 'R': {
 
             }break;
 
+            //Czy Hetman
             case 'Q': {
-
+                
             }break;
 
+            //Czy Skoczek
             case 'N': {
 
             }

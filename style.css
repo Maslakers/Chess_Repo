@@ -16,7 +16,11 @@
 }
 .Piece{
     margin: 0 auto;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
+    transition: 0.2s;
+}
 
+.Piece:hover{
+    border: 1px solid yellow;
 }
