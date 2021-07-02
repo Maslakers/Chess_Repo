@@ -1,0 +1,22 @@
+#chessBoard{
+    margin: 0 auto;
+    padding: 0;
+    border: 4px solid saddlebrown;
+    background-color: saddlebrown;
+    width: 480px;
+    height: 480px;
+}
+.chessTiles{
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    display: block;
+    float: left;
+}
+.Piece{
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+
+}
