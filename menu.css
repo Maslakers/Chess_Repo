@@ -21,7 +21,7 @@ header{
 .button{
     border: 3px #222 solid;
     border-radius: 10%;
-    height:40px;
+    height:auto;
     width:30%;
     font-size: 32px;
     text-align: center;
@@ -69,4 +69,8 @@ header{
     color: white;
     border:white 2px dashed;
     padding:8px;
+}
+a{
+    text-decoration: none;
+    color:black;
 }
