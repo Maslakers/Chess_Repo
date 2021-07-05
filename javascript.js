@@ -613,8 +613,41 @@ function allowDrop(ev) {
 
             //Czy Skoczek
             case 'N': {
+                if(draggedPiece.id[0] === 'w'){
 
-            }
+                    let canMoveOnThat = false;
+                    let isThereMyPiece = false;
+
+                    if(Math.abs(parseInt(targetParentId[1])-parseInt(pieceParentId[1]))===2 && Math.abs((targetParentId[0].charCodeAt(0))-pieceParentId[0].charCodeAt(0))===1)
+                    canMoveOnThat = true;
+                    if(Math.abs(parseInt(targetParentId[1])-parseInt(pieceParentId[1]))===1 && Math.abs((targetParentId[0].charCodeAt(0))-pieceParentId[0].charCodeAt(0))===2)
+                    canMoveOnThat = true;
+                    if(targetId[0] === 'w'){
+                        isThereMyPiece = true;
+                    }
+
+                    if(canMoveOnThat && !isThereMyPiece){
+                        ev.preventDefault()
+                    }
+                }
+                if(draggedPiece.id[0] === 'b'){
+
+                    let canMoveOnThat = false;
+                    let isThereMyPiece = false;
+
+                    if(Math.abs(parseInt(targetParentId[1])-parseInt(pieceParentId[1]))===2 && Math.abs((targetParentId[0].charCodeAt(0))-pieceParentId[0].charCodeAt(0))===1)
+                    canMoveOnThat = true;
+                    if(Math.abs(parseInt(targetParentId[1])-parseInt(pieceParentId[1]))===1 && Math.abs((targetParentId[0].charCodeAt(0))-pieceParentId[0].charCodeAt(0))===2)
+                    canMoveOnThat = true;
+                    if(targetId[0] === 'b'){
+                        isThereMyPiece = true;
+                    }
+
+                    if(canMoveOnThat && !isThereMyPiece){
+                        ev.preventDefault()
+                    }
+                }
+            } break;
         }
         
     }
