@@ -1,0 +1,29 @@
+
+#board{
+    height: 520px;
+    width: 520px;
+    border: solid black 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.darkSquare{
+    height:65px;
+    width:65px;
+    background-color:#b58863;
+    display: block;
+    float: left;
+    z-index: 0;
+}
+.lightSquare{
+    height:65px;
+    width:65px;
+    background-color:white;
+    display: block;
+    float: left;
+    z-index: 0;
+}
+.piece{
+    z-index:1337;
+    display: block;
+    left:5px;
+}
