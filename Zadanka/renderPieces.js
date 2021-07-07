@@ -19,7 +19,7 @@ function pieceTexture(type)
 
 function renderPieces()
 {
-    for(let i=0; i<32; i++)
+    for(let i=0; i<pieces.length; i++)
     {
         let piece = document.createElement('img');
         piece.src = pieceTexture(pieces[i].type);

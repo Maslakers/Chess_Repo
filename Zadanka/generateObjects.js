@@ -1,4 +1,4 @@
-let fen="rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b"
+let fen="r1bqr1k1/1pp2Npp/p1np4/2n1p3/1b2P3/1QNPB3/PPP1BPPP/2KR3R w"
 
 class Piece{
     constructor(c, x, y, t){
@@ -34,7 +34,8 @@ class Piece{
         this.x=Math.floor(targetId/10);
         this.y = targetId%10;
         document.getElementById(targetId).appendChild(piece);
-
+        
+        if(this.color === fen[fen.length-1]) opponentMove();
     }
 }
 let pieces = []
