@@ -1,18 +1,19 @@
 #top{
     border: 3px #222 solid;
     border-radius: 15%;
-    height:500px;
+    height:auto;
     width:50%;
     text-align: center;
     margin-right:25%;
     margin-left:25%;
     background-color: rgb(184, 41, 255);
+    font-size: 36px;
 }
 body{
     text-align: center;
     justify-content: center;
     font-family: Lato;
-    background-color: blueviolet;
+    background-color: #316;
 }
 header{
     font-size: 36px;
@@ -73,4 +74,11 @@ header{
 a{
     text-decoration: none;
     color:black;
+}
+article{
+    text-align: left;
+    font-size: 24px;
+}
+p{
+    margin:8px;
 }

@@ -17,6 +17,7 @@ class Piece{
     }
     handleMovement(targetId)
     {
+        moving=false;
         document.getElementById('board').removeChild(document.getElementById('animate'));
         if(document.getElementById(targetId).firstChild !== null)
         {

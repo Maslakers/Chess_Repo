@@ -1,5 +1,7 @@
+let moving = false;
 function moveAnimation(object, destination)
 {
+    moving = true;
     let id=null;
     //suma klatek w animacji
     let hopCount = 200; 

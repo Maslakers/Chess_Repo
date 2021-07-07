@@ -25,9 +25,12 @@ function selectFiles(selectedId)
         {
             if(document.getElementById(selectedId).firstChild == null || pieces[getPieceId(selectedId)].color !== fen[fen.length-1])     // zapobiega zbijaniu własnych figur
             {
-                if(correctMoves(firstSelectId, selectedId))     //sprawdza czy ruch jest poprawny
+                if(!moving)
                 {
-                    pieces[selectedPieceId].move(selectedId);
+                    if(correctMoves(firstSelectId, selectedId))     //sprawdza czy ruch jest poprawny
+                    {
+                        pieces[selectedPieceId].move(selectedId);
+                    }
                 }
             } else selectNewPiece=true;
         }
