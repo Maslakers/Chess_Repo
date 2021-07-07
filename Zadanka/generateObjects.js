@@ -10,23 +10,26 @@ class Piece{
     move(targetId)
     {
         //usunięcie bierki, ze starej pozycji
-        console.log("move from"+this.x+this.y+"to"+targetId);
-        let parentNode = document.getElementById(this.x*10+this.y);
-        parentNode.removeChild(parentNode.firstChild)
-
+        document.getElementById(this.x*10+this.y).removeChild(document.getElementById(this.x*10+this.y).firstChild);
+        //wykonanie animacji
+        moveAnimation(this, targetId);
         //zbicia
-            if(document.getElementById(targetId).firstChild !== null)
+    }
+    handleMovement(targetId)
+    {
+        document.getElementById('board').removeChild(document.getElementById('animate'));
+        if(document.getElementById(targetId).firstChild !== null)
+        {
+            for(let i=0; i<32; i++)
             {
-                for(let i=0; i<32; i++)
+                if(pieces[i].x === Math.floor(targetId/10) && pieces[i].y === targetId%10)
                 {
-                    if(pieces[i].x === Math.floor(targetId/10) && pieces[i].y === targetId%10)
-                    {
-                        pieces.splice(i, 1);
-                        document.getElementById(targetId).removeChild(document.getElementById(targetId).firstChild);
-                        break;
-                    }
+                    pieces.splice(i, 1);
+                    document.getElementById(targetId).removeChild(document.getElementById(targetId).firstChild);
+                    break;
                 }
             }
+        }
         //stworzenie bierki na nowej pozycji
         let piece = document.createElement('img');
         piece.src = pieceTexture(this.type);
