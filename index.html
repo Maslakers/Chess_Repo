@@ -9,11 +9,15 @@
     </head>
 
     <body>
-
             <script src="javascript.js"></script>
-
         <ul id="chessBoard">
 
         </ul>
+        <div id="timers">
+            <div id="timer1">Waiting...</div>
+            <button onclick="timeControl(localStorage.getItem('time'));">Start timer</button>
+            <div id="timer2">Waiting...</div>
+        </div>
+        <script src="timeControl.js"></script>
     </body>
 </html>

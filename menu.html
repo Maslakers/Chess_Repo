@@ -7,18 +7,21 @@
 </head>
 <body>
     
+    <script src="timeControl.js"></script>
     <div id="top">
         <header>Nasza Grasza</header>
-        <div id="kolor">
+        <div id="czas">
             Graj<br>
-            <div class="k">Wybierz kolor:</div><br>
-            <a href="index.html"><div class="k" id="w">białe</div></a>
-            <a href="index.html"><div class="k" id="b">czarne</div></a>
+            <div class="k">Wybierz kontrolę czasu:</div><br>
+            <button class="k kontr" onclick="play(1)"}>1 minuta (Bullet)</button>
+            <button class="k kontr" onclick="play(5)">5 minut (Blitz)</button>
+            <button class="k kontr" onclick="play(10)">10 minut (rapid)</button>
+            <button class="k kontr" onclick="play(30)">30 minut</button>
+            <button class="k kontr" onclick="play(60)">1 godzina</button>
         </div>
         <a href="Zadanka/Zadanka.html"><div class="button">Zadania szachowe</div></a>
         <a href="autors.html"><div class="button">O nas</div></a>
     </div>
-
 </body>
 
 </html>

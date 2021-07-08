@@ -24,3 +24,32 @@
 .Piece:hover{
     border: 1px solid yellow;
 }
+#timers{
+    height: 480px;
+    width: 20%;
+    border: black 2px solid;
+    border-radius: 10px;
+    position: absolute;
+    right: 7%;
+    top: 10px;
+}
+#timers div, #timers button{
+    width: 70%;
+    margin: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    border: black 2px solid;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    padding-left:30px;
+}
+#timer1{
+    top: 15px;
+}
+#timers button{
+    top: 40%;
+}
+#timer2{
+    top: 80%;
+}
