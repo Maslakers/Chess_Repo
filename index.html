@@ -9,13 +9,19 @@
     </head>
 
     <body>
-            <script src="javascript.js"></script>
-        <ul id="chessBoard">
 
+        <script src="Animation.js"></script>
+        <script src="moving.js"></script>
+        <ul id="chessBoard">
+            <div id="promote">
+                <img onclick="promotionChosen(1)">
+                <img onclick="promotionChosen(2)">
+                <img onclick="promotionChosen(3)">
+                <img onclick="promotionChosen(4)">
+            </div>
         </ul>
         <div id="timers">
             <div id="timer1">Waiting...</div>
-            <button onclick="timeControl(localStorage.getItem('time'));">Start timer</button>
             <div id="timer2">Waiting...</div>
         </div>
         <script src="timeControl.js"></script>

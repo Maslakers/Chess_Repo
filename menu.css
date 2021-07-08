@@ -32,7 +32,7 @@ header{
     margin-right: 35%;
     margin-bottom: 10%;
 }
-#kolor{
+#czas{
     margin-left: 35%;
     transition: height 0.5s, width 0.5s, margin-left 0.5s;
     transition-timing-function: ease-in-out;
@@ -46,30 +46,25 @@ header{
     background-color: blueviolet;
     margin-bottom: 10%;
 }
-#kolor .k{
+#czas .k{
     display: none;
 }
-#kolor:hover .k{
+#czas:hover .k{
     display:inline-block;
 }
-#kolor:hover{
-    height:160px;
-    width:40%;
-    margin-left:30%;
+#czas:hover{
+    height:400px;
+    width:50%;
+    margin-left:25%;
     transition: height 0.5s, width 0.5s, margin-left 0.5s;
     transition-timing-function: ease-in-out;
 }
-#w{
+.kontr{
     background-color: white;
     color:black;
-    border:black 2px dashed;
+    border:black 2px solid;
     padding:8px;
-}
-#b{
-    background-color: black;
-    color: white;
-    border:white 2px dashed;
-    padding:8px;
+    width: 90%;
 }
 a{
     text-decoration: none;
