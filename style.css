@@ -8,6 +8,8 @@ html {
     background-color: saddlebrown;
     width: 24rem;
     height: 24rem;
+    float:left;
+    margin-left: 35%;
 }
 .chessTiles{
     display: block;
@@ -30,7 +32,7 @@ html {
     border: 1px solid yellow;
 }
 #timers{
-    height: 480px;
+    height: 24rem;
     width: 20%;
     border: black 2px solid;
     border-radius: 10px;
@@ -38,7 +40,7 @@ html {
     right: 7%;
     top: 10px;
 }
-#timers div, #timers button{
+#timers div{
     width: 70%;
     margin: 20px;
     font-size: 40px;
@@ -46,17 +48,14 @@ html {
     border: black 2px solid;
     border-radius: 10px;
     display: block;
-    position: absolute;
+    position: relative;
     padding-left:30px;
 }
 #timer1{
     top: 15px;
 }
-#timers button{
-    top: 40%;
-}
 #timer2{
-    top: 80%;
+    top: 190px;
 }
 #promote{
     display: none;
