@@ -4,32 +4,26 @@ function moveAnimation(object, destination)
     moving = true;
     let id=null;
     //suma klatek w animacji
-    let hopCount = 200; 
+    let hopCount = 100; 
     
-    //stworzenie nowego obrazu do animacji
-    let animatedPiece = document.createElement('img');
-    animatedPiece.src = pieceTexture(object.type);
-    animatedPiece.id = 'animate';
-    animatedPiece.className = 'piece';
-    console.log(animatedPiece.style.left)
-    document.getElementById('board').appendChild(animatedPiece);
-    let element = document.getElementById('animate');
+    let element = document.getElementById(object.x*10+object.y).firstChild
+    document.getElementById(object.x*10+object.y).style.zIndex=10000;
 
     //matematyka
-    let xpos = (object.x-1)*65;
-    let ypos = (object.y-1)*65;
-    let xhop = ((Math.floor(destination/10-1)*65) - xpos)/hopCount;
-    let yhop = ((((destination%10)-1)*65) - ypos)/hopCount;
+    let xpos = 0;
+    let ypos = 0;
+    let xhop = ((Math.floor(destination/10-1)*65) - (object.x-1)*65)/hopCount;
+    let yhop = ((((destination%10)-1)*65) - (object.y-1)*65)/hopCount;
     clearInterval(id);
-    id = setInterval(frame, 5);
+    id = setInterval(frame, 10);
 
     //kontynuacjia kodu
-    setTimeout(() => {pieces[getPieceId(object.x*10+object.y)].handleMovement(destination)}, 1000);
+    setTimeout(() => {pieces[getPieceId(object.x*10+object.y)].move(destination)}, 1000);
 
     //ta funkcja przesuwa figure o kilka pixeli co 0,01 sekundy
     function frame()
     {
-        if(xpos == Math.floor(destination/10-1)*65)
+        if(xpos >= Math.floor(destination/10-1)*65)
         {
             clearInterval(id);
         }else

@@ -9,16 +9,9 @@ class Piece{
     }
     move(targetId)
     {
-        //usunięcie bierki, ze starej pozycji
-        document.getElementById(this.x*10+this.y).removeChild(document.getElementById(this.x*10+this.y).firstChild);
-        //wykonanie animacji
-        moveAnimation(this, targetId);
-        //zbicia
-    }
-    handleMovement(targetId)
-    {
         moving=false;
-        document.getElementById('board').removeChild(document.getElementById('animate'));
+        document.getElementById(this.x*10+this.y).removeChild(document.getElementById(this.x*10+this.y).firstChild)
+        document.getElementById(this.x*10+this.y).style.zIndex=0;
         if(document.getElementById(targetId).firstChild !== null)
         {
             for(let i=0; i<32; i++)

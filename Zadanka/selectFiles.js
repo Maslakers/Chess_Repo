@@ -29,7 +29,7 @@ function selectFiles(selectedId)
                 {
                     if(correctMoves(firstSelectId, selectedId))     //sprawdza czy ruch jest poprawny
                     {
-                        pieces[selectedPieceId].move(selectedId);
+                        moveAnimation(pieces[selectedPieceId], selectedId);
                     }
                 }
             } else selectNewPiece=true;
