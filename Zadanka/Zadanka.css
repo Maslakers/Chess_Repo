@@ -102,3 +102,6 @@
     transition: width 1s, height 1s, font-size 1s, margin-left 1s;
     z-index: 2137;
 }
+#holdedPiece{
+    position: absolute;
+}

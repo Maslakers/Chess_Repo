@@ -30,16 +30,21 @@ function timerStart()
         placePieces();
     }
 }
+let solving = false;
 function placePieces()
 {
-    for(let i=0; i<document.getElementsByClassName('piece').length; i++)// przestanie wyswietlania bierek na planszy
-    document.getElementsByClassName('piece')[i].style.display = 'none';
-    for(let i=0; i<12; i++)
+    if(!solving)
     {
-        let bierka = document.createElement('img');
-        let textures = ['P', 'R', 'N', 'B', 'Q', 'K', 'p', 'r', 'n', 'b', 'q', 'k'];
-        bierka.src = pieceTexture(textures[i]);
-        bierka.onclick = () => {startHolding(textures[i]);}
-        document.getElementById("bierki").appendChild(bierka);
+        solving = true;
+        for(let i=0; i<document.getElementsByClassName('piece').length; i++)// przestanie wyswietlania bierek na planszy
+        document.getElementsByClassName('piece')[i].style.display = 'none';
+        for(let i=0; i<12; i++)
+        {
+            let bierka = document.createElement('img');
+            let textures = ['P', 'R', 'N', 'B', 'Q', 'K', 'p', 'r', 'n', 'b', 'q', 'k'];
+            bierka.src = pieceTexture(textures[i]);
+            bierka.onclick = () => {startHolding(textures[i], event);};
+            document.getElementById("bierki").appendChild(bierka);
+        }
     }
 }
