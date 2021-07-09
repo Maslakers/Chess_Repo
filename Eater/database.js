@@ -1,7 +1,18 @@
 let correctFiles = [];
+let completedPuzzles = [];
 function database()
 {
     let id = Math.floor(Math.random()*11);
+    if(completedPuzzles.length == 11) console.log("ukończono wszystkie zadania"); else
+    for(let i=0; i<completedPuzzles.length; i++)
+    {
+        console.log(id, i)
+        if(completedPuzzles[i] == id) 
+        {
+            id = (id+1)%11;
+            i=-1;
+        }
+    }
     console.log("loading Puzzle with id: "+id)
     switch (id)
     {
@@ -17,4 +28,5 @@ function database()
         case 9: generatePieces("7k/1p1bQ1qp/8/2p2p2/2B3P1/7P/r1P2P2/4R1K1 w"); correctFiles=[12, 35, 47, 77]; break;
         case 10: generatePieces("r2q1rk1/1bp1bpp1/p1np1n1p/1p2p1B1/3PP3/1BP2N2/PP3PPP/RN1QR1K1 w"); correctFiles=[86, 67, 66, 55]; break;
     }
+    completedPuzzles.push(id);
 }

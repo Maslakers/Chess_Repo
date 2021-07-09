@@ -1,3 +1,4 @@
+let fen;
 function loadPuzzle()
 {
     pieces = [];
@@ -15,6 +16,7 @@ function loadPuzzle()
     document.getElementById('board').appendChild(wrong);
     document.getElementById('beforeIncorrect').innerHTML = 'Incorrect!';
     generateBoard();
-    database(1);
+    let randomizer = Math.floor(Math.random()*4);
+    fen = database(randomizer);
     renderPieces();
 }
