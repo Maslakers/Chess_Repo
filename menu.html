@@ -1,27 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Nasza Grasza</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="menu.css">
-</head>
-<body>
-    
-    <script src="timeControl.js"></script>
-    <div id="top">
-        <header>Nasza Grasza</header>
-        <div id="czas">
-            Graj<br>
-            <div class="k">Wybierz kontrolę czasu:</div><br>
-            <button class="k kontr" onclick="play(1)"}>1 minuta (Bullet)</button>
-            <button class="k kontr" onclick="play(5)">5 minut (Blitz)</button>
-            <button class="k kontr" onclick="play(10)">10 minut (rapid)</button>
-            <button class="k kontr" onclick="play(30)">30 minut</button>
-            <button class="k kontr" onclick="play(60)">1 godzina</button>
-        </div>
-        <a href="Zadanka/Zadanka.html"><div class="button">Zadania szachowe</div></a>
-        <a href="autors.html"><div class="button">O nas</div></a>
-    </div>
-</body>
+    <head>
+        <title>Nasza Grasza</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="menu.css">
+    </head>
 
+    <body>
+        <div id="stripe_box">
+            <div id="stripe1"></div>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a onclick="ChangeofDocument(1)">Strona Główna</a></li>
+                <li><a onclick="ChangeofDocument(2)">Zagraj</a></li>
+                <li><a onclick="ChangeofDocument(3)">Zadanka</a></li>
+                <li><a onclick="ChangeofDocument(4)">o Autorach</a></li>
+                <li><a onclick="ChangeofDocument(5)">Eater</a></li>
+            </ul>
+        </div>
+        <div id="container">
+            <main id="main">
+                <input type="button" onclick="Zamiana()" id="przycisk">
+                <img src="szachownica_svg/Garry_1.jpg">
+                <img src="szachownica_svg/Epic_chuck_Norris.jpg">
+                <img src="szachownica_svg/Garry_2.jpg">
+            </main>
+            <div id="ukryty_przycisk">
+                <img src="szachownica_svg/Magnus_szewczyk.jpg">
+            </div>
+            <div id="czas">
+                <button class="k kontr" onclick="play(1)"><p class="biggerP">1+0</p><p class="smallerP">Blitz</p></button>
+                <button class="k kontr" onclick="play(3)"><p class="biggerP">3+0</p><p class="smallerP">Blitz</p></button>
+                <button class="k kontr" onclick="play(5)"><p class="biggerP">5+0</p><p class="smallerP">Blitz</p></button>
+                <button class="k kontr" onclick="play(10)"><p class="biggerP">10+0</p><p class="smallerP">Rapid</p></button>
+                <button class="k kontr" onclick="play(15)"><p class="biggerP">15+0</p><p class="smallerP">Rapid</p></button>
+                <button class="k kontr" onclick="play(30)"><p class="biggerP">30+0</p><p class="smallerP">Classical</p></button>
+                <button class="k kontr" onclick="play(45)"><p class="biggerP">45+0</p><p class="smallerP">Classical</p></button>
+                <button class="k kontr" onclick="play(60)"><p class="biggerP">60+0</p><p class="smallerP">Classical</p></button>
+                <button class="k kontr" onclick="notStandard()"><p id="notStandard">Niestandarodwa</p></button>
+                
+            </div>
+            <div id="zadanka">
+                <div class="zadanka_header"><p>Zadanka</p></div>
+                <div class="zadanka_wrapper"><a href="Zadanka/Zadanka.html">Zagraj</a></div>
+                <div class="zadanka_wrapper"><a href="Zadanka/lista.html">Wybierz</a></div>
+            </div>
+            <div id="autorzy">
+                <div>
+                    <article>
+                        <header>- Mateusz "Heppe" Chłopecki</header>
+                        <p>Geniusz, filantrop, marzyciel, szachista, autor wielu ekscytujących aplikacji internetowych.</p>
+                        <p>Z zawodu Developer w międzynarodowej organizacji szachowej</p>
+                        <p>Moje zainteresowania:</p>
+                        <ul>
+                            <li>Programowanie, mój ulubiony język to C++, do pracy używam javascript'u, ale nie jest to
+                            żaden problem, bo te języki są podobne do siebie. Zazwyczaj koduję samemu, ale ten projekt jest robiony
+                            wspólnie ze znajomym, żeby nauczyć się pracy zespołowej i obsługi gita.<br></li>
+                            <li>Kilka lat temu byłem prosesjonalnym szachistą, trenowałem, jeździłem na turnieje, wygrywałem nagrody. Przestałem
+                            bo miałem dość gry profesjonalnej. Szachy nie miały aktualizacji od jakichś 200 lat, więc to trochę martwa gra.
+                            Dzięki szachom poznałem wielu ludzi, głównie tych którzy chodzili ze mną na zajęcia. Tak na przykład poznałem
+                            Mateusza Mańkę, z którym teraz pracuję razem.</li>
+                            <li>Scambaiting, piszę emaile ze scammerami z różnych części świata, najczęściej w Afryce. Ci scammerzy
+                            próbują cie namówić na zapłacenie im, obiecując w zamian duże ilości pieniędzy. Moim zajęciem jest
+                            podawanie im moich fałszywych informacji, a następnie zadawanie niekończącej się ilości głupich pytań
+                            w celu zmarnowania czasu scammerowi. Licząc na to, że może jakaś prawdziwa ofiara nie zostanie oszukana,
+                            przez to że scammer był mną zajęty. Moim drugim celem jest pośmiać się ze scammera próbującego usilnie
+                            namówić mnie do zapłaty. Oczywiście nigdy im niczego nie daję. 
+                            </li>
+                        </ul>
+                    </article>
+                    <article>
+                        <header>- Mateusz "Maslak" Mańka</header>
+                            <li>Tak istnieje</li>
+                    </article>
+                </div>
+            </div>
+            <div id="eater">
+                <div class="zadanka_header"><p>Eater</p></div>
+                <div class="zadanka_wrapper"><a href="Eater/eater.html">Zagraj</a></div>
+                <div class="zadanka_wrapper"><a href="Zadanka/lista.html">Wybierz</a></div>
+            </div>
+        </div>
+        <script src="timeControl.js"></script>
+        <script src="Animation.js"></script>
+    </body>
 </html>

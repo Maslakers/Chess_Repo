@@ -9,8 +9,13 @@ function timeControl(minutesPerPlayer)
         let blackSeconds = minutesPerPlayer*600;
         let whiteTimer = document.getElementById('timer2');
         let blackTimer = document.getElementById('timer1');
-        whiteTimer.innerHTML = Math.floor(whiteSeconds/600)+' : '+'00';
-        blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+'00';
+        
+        whiteTimer.innerHTML = Math.floor(whiteSeconds/600)+' : '+
+        ((whiteSeconds%600 > 100)? whiteSeconds%600/10 : '0'+whiteSeconds%600/10);
+
+        blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+ 
+        ((blackSeconds%600 > 100)? blackSeconds%600/10 : '0'+blackSeconds%600/10);
+
         let theWorld = setInterval(timePassing, 100);
         function timePassing()
         {
@@ -41,4 +46,12 @@ function play(time)
 {
     localStorage.setItem('time', time); 
     window.location.href='index.html';
+}
+
+function notStandard(){
+    let chosenTime;
+    chosenTime = parseFloat(prompt());
+    if(chosenTime !== 0 && typeof chosenTime === "number"){
+        play(chosenTime);
+    }
 }
