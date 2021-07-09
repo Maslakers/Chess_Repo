@@ -14,7 +14,6 @@ function generateBoard()
         Tile.id=(1+i%8)*10+(8-Math.floor(i/8));
 
         Tile.onclick = () => {selectFiles(Tile.id);};
-
         document.getElementById("board").appendChild(Tile);
     }
 }

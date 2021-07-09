@@ -1,5 +1,3 @@
-let fen="r1bqr1k1/1pp2Npp/p1np4/2n1p3/1b2P3/1QNPB3/PPP1BPPP/2KR3R w"
-
 class Piece{
     constructor(c, x, y, t){
         this.color=c;
@@ -37,7 +35,7 @@ class Piece{
 }
 let pieces = []
 
-function generatePieces(){
+function generatePieces(fen){
     let y=8;
     let x=0;
     //odczytywanie kodu fen
@@ -57,6 +55,5 @@ function generatePieces(){
         let newPiece= new Piece( (fen.charCodeAt(i)<91)? 'w' : 'b', x, y, fen[i]);
         pieces.push(newPiece);
     }
+    color=fen[fen.length-1];
 }
-
-generatePieces();
