@@ -40,4 +40,3 @@ function renderPieces()
         document.getElementById(pieces[i].x*10+pieces[i].y).appendChild(piece);
     }
 }
-renderPieces();

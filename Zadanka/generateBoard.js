@@ -17,4 +17,3 @@ function generateBoard()
         document.getElementById("board").appendChild(Tile);
     }
 }
-generateBoard();

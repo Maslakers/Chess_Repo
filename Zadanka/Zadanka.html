@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="Zadanka.css">
 </head>
-<body>
+<body onload="loadPuzzle()">
     <a href="../menu.html">Powrót do menu</a>
     <div id="board">
         <div id="beforeCorrect">
@@ -16,6 +16,7 @@
         </div>
     </div>
     
+    <script src="loadPuzzle.js"></script>
     <script src="generateObjects.js"></script>
     <script src="database.js"></script>
     <script src="correctMoves.js"></script>
