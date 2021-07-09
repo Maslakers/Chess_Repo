@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zadanka</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Zadanka/Zadanka.css">
+</head>
+<body onload="loadPuzzle()">
+    <a href="../menu.html">Powrót do menu</a>
+    <div id="board">
+    </div>
+    <div id="panel">
+        <div id="timer">Waitign...</div>
+        <button onclick="timerStart()">Gotowy!</button>
+        <div id="bierki"></div>
+    </div>
+
+    <script src="timer.js"></script>
+    <script src="../Eater/loadPuzzle.js"></script>
+    <script src="../Zadanka/generateObjects.js"></script>
+    <script src="database.js"></script>
+    <script src="../Zadanka/generateBoard.js"></script>
+    <script src="../Zadanka/renderPieces.js"></script>
+</body>
+</html>
