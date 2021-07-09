@@ -16,6 +16,8 @@ function timeControl(minutesPerPlayer)
         blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+ 
         ((blackSeconds%600 > 100)? blackSeconds%600/10 : '0'+blackSeconds%600/10);
 
+        // The World to zmienna, która zatrzymuje czas, 
+        // nazwa jest nawiązaniem do części trzeciej Jojo's Bizzare Adventure
         let theWorld = setInterval(timePassing, 100);
         function timePassing()
         {
