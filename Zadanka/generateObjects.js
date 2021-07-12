@@ -52,8 +52,12 @@ function generatePieces(fen){
             x+=fen[i]-1;
             continue;
         }
-        let newPiece= new Piece( (fen.charCodeAt(i)<91)? 'w' : 'b', x, y, fen[i]);
+        let newPiece;
+        if(fen[fen.length-1] == 'w')
+        newPiece= new Piece( (fen.charCodeAt(i)<91)? 'w' : 'b', x, y, fen[i]);
+        else
+        newPiece= new Piece( (fen.charCodeAt(i)<91)? 'w' : 'b', 9-x, 9-y, fen[i]);
         pieces.push(newPiece);
     }
-    color=fen[fen.length-1];
+    color = fen[fen.length-1]
 }

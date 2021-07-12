@@ -1,14 +1,26 @@
-function database(id)
+let completedPuzzles = [];
+function database()
 {
-    let fen;
+    let id = Math.floor(Math.random()*6);
+    if(completedPuzzles.length == 6) console.log("ukończono wszystkie zadania"); else
+    for(let i=0; i<completedPuzzles.length; i++)
+    {
+        if(completedPuzzles[i] == id) 
+        {
+            id = (id+1)%11;
+            i=-1;
+        }
+    }
+    console.log('loading Puzzle with Id:'+id)
+    completedPuzzles.push(id);
     switch (id)
     {
-        case 0: fen="r1bqr1k1/1pp2Npp/p1np4/2n1p3/1b2P3/1QNPB3/PPP1BPPP/2KR3R w"; movesWhite = [6786, 2378, 8667]; movesBlack = [7888, 5878]; break;
-        case 1: fen="3q4/7k/1p5r/1PnpNp2/2p5/6P1/PKPQ3P/6R1 w"; movesWhite = [4286, 5567, 6748]; movesBlack = [8786, 8677]; break;
-        case 2: fen="2n5/p2b3p/2p1k1r1/N3np2/P2Qp3/2P1P3/1q2B2P/3RKN2 w"; movesWhite = [4455, 1534, 3422]; movesBlack = [5655, 5556]; break;
-        case 3: fen="r3r1k1/p2q3p/1p4p1/8/3pN1n1/PP1P4/6PP/R2QR2K w"; movesWhite = [4174, 5466, 6674]; movesBlack = [4774, 7877]; break;
-        case 4: fen="2r2b2/1p3p1k/7p/1P5q/3BNPn1/1P4Q1/3R2P1/2r2RK1 w"; break;
-        case 5: fen="2kr2nr/pppb2pp/3q4/2p1N1Q1/4P3/2P5/2P2PPP/1RB1K2R w"; break;
+        case 0: fen="r1bqr1k1/1pp2Npp/p1np4/2n1p3/1b2P3/1QNPB3/PPP1BPPP/2KR3R w"; solverMoves = [6786, 2378, 8667]; opponentMoves = [7888, 5878]; break;
+        case 1: fen="3q4/7k/1p5r/1PnpNp2/2p5/6P1/PKPQ3P/6R1 w"; solverMoves = [4286, 5567, 6748]; opponentMoves = [8786, 8677]; break;
+        case 2: fen="2n5/p2b3p/2p1k1r1/N3np2/P2Qp3/2P1P3/1q2B2P/3RKN2 w"; solverMoves = [4455, 1534, 3422]; opponentMoves = [5655, 5556]; break;
+        case 3: fen="r3r1k1/p2q3p/1p4p1/8/3pN1n1/PP1P4/6PP/R2QR2K w"; solverMoves = [4174, 5466, 6674]; opponentMoves = [4774, 7877]; break;
+        case 4: fen="2r2b2/1p3p1k/7p/1P5q/3BNPn1/1P4Q1/3R2P1/2r2RK1 w"; solverMoves = [7374, 7161, 6162, 5466, 6674]; opponentMoves = [3161, 3831, 8574, 8788]; break;
+        case 5: fen="Q7/p1p1q1pk/3p2rp/4n3/3bP3/7b/PP3PPK/R1B2R2 b"; solverMoves = [1627, 1211, 4224, 4436]; opponentMoves = [8111, 6824, 3858]; break;
         case 6: fen="6k1/6n1/3N1Q2/BppP2Pb/2p1K3/2P3q1/8/8 w"; break;
         case 7: fen="4r1k1/1bbN1p2/p5pp/2p4q/P1B3nP/2P1P1P1/2N2P2/3Q1RK1 w"; break;
         case 8: fen="8/2Q5/5pkp/1p3bp1/3q1P2/KP2N1P1/P3R3/1r6 w"; break;
@@ -28,5 +40,4 @@ function database(id)
         case 22: fen= '5b1r/p2k1ppp/b2p1P2/2p5/P1p2P2/3qQN2/5KPP/1RR5 w';break;
     }
     generatePieces(fen);
-    return fen;
 }

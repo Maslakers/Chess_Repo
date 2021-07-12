@@ -1,6 +1,7 @@
 let fen;
 function loadPuzzle()
 {
+    moveNo = 0;
     pieces = [];
     console.log("restarting")
     document.body.removeChild(document.getElementById('board'));
@@ -16,7 +17,6 @@ function loadPuzzle()
     document.getElementById('board').appendChild(wrong);
     document.getElementById('beforeIncorrect').innerHTML = 'Incorrect!';
     generateBoard();
-    let randomizer = Math.floor(Math.random()*4);
-    fen = database(randomizer);
+    database();
     renderPieces();
 }
