@@ -1,7 +1,11 @@
 function loadPuzzle()
 {
+    console.log(document.getElementById('bierki'))
+    document.getElementById('panel').removeChild(document.getElementById('bierki'));
+    let bierki = document.createElement('div');
+    bierki.id = 'bierki';
+    document.getElementById('panel').appendChild(bierki);
     pieces = [];
-    console.log("restarting")
     document.body.removeChild(document.getElementById('board'));
     let board = document.createElement('div');
     board.id = 'board';
