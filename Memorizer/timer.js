@@ -9,7 +9,6 @@ function timerStart()
     {
         loadPuzzle();
         timerStarted = true;
-        console.log("setting time control to: "+20);
         let element = document.getElementById("timer");
         // ilość czasu w dziesiętnych sekundy
         timeLeft = 200;

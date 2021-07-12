@@ -37,7 +37,7 @@ html {
     border: black 2px solid;
     border-radius: 10px;
     position: absolute;
-    right: 7%;
+    right: 70%;
     top: 10px;
 }
 #timers div{
@@ -82,4 +82,21 @@ html {
 #promote>img:hover {
     background-color: rgb(255, 255, 60);
     border-radius: 0;
+}
+a{
+    text-decoration: none;
+    font-size: 36px;
+    border: 2px black solid;
+    border-radius: 10px;
+    box-shadow: 4px 1px 1px rgba(aa, aa, aa, 0.5);
+    padding: 10px;
+    margin-left: 10px;
+    background-color: wheat;
+    color:black;
+    transition: background-color 0.5s;
+    display: inline-block;
+}
+a:hover{
+    background-color: #b58863;
+    transition: background-color 0.5s;
 }

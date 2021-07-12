@@ -109,8 +109,9 @@
 #panel{
     display: inline-block;
     width: 30%;
+    font-size: 24px;
 }
-#bierki{
+#bierki, #points1{
     display: inline-block;
 }
 #timer{
@@ -124,4 +125,33 @@ button{
     font-size: 48px;
     padding: 10px;
     margin: 10px;
+}
+a{
+    text-decoration: none;
+    font-size: 36px;
+    border: 2px black solid;
+    border-radius: 10px;
+    box-shadow: 4px 1px 1px rgba(aa, aa, aa, 0.5);
+    padding: 10px;
+    margin-left: 10px;
+    background-color: wheat;
+    color:black;
+    transition: background-color 0.5s;
+    display: inline-block;
+}
+a:hover{
+    background-color: #b58863;
+    transition: background-color 0.5s;
+}
+#pointCount{
+    font-size: 48px;
+    border: 2px black solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left:10px;
+}
+#points2{
+    color: limegreen;
+    display: inline-block;
+    margin-left: 200px;
 }

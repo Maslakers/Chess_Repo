@@ -47,7 +47,7 @@ function timeControl(minutesPerPlayer)
 function play(time)
 {
     localStorage.setItem('time', time); 
-    window.location.href='index.html';
+    window.location.href='Graj/index.html';
 }
 
 function notStandard(){

@@ -1,7 +1,17 @@
-let correctFiles = [];
+let completedPuzzles = [];
 function database()
 {
     let id = Math.floor(Math.random()*11);
+    if(completedPuzzles.length == 11) console.log("ukończono wszystkie zadania"); else
+    for(let i=0; i<completedPuzzles.length; i++)
+    {
+        if(completedPuzzles[i] == id) 
+        {
+            id = (id+1)%11;
+            i=-1;
+        }
+    }
+    completedPuzzles.push(id);
     console.log("loading Puzzle with id: "+id)
     switch (id)
     {

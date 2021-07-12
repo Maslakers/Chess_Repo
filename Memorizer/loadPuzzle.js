@@ -1,6 +1,5 @@
 function loadPuzzle()
 {
-    console.log(document.getElementById('bierki'))
     document.getElementById('panel').removeChild(document.getElementById('bierki'));
     let bierki = document.createElement('div');
     bierki.id = 'bierki';

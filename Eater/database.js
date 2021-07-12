@@ -6,7 +6,6 @@ function database()
     if(completedPuzzles.length == 11) console.log("ukończono wszystkie zadania"); else
     for(let i=0; i<completedPuzzles.length; i++)
     {
-        console.log(id, i)
         if(completedPuzzles[i] == id) 
         {
             id = (id+1)%11;

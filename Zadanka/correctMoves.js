@@ -5,6 +5,7 @@ let movesBlack;
 function incorrect()
 {
     document.getElementById('beforeIncorrect').id = 'incorrect';
+    document.getElementById('incorrect').classList = 'alert';
     setTimeout(() => {document.getElementById('incorrect').id = 'beforeIncorrect';}, 2000)
 }
 
