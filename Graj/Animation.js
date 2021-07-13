@@ -1,17 +1,17 @@
 
-let Array_of_Documents = ['main','czas','zadanka','autorzy','eater']
+let Array_of_Documents = ['main','czas','zadanka','autorzy','eater','memorizer']
 
 function hover_js(ev){
     let target_tile;
     target_tile = document.getElementById(ev.target.id);
     if(ev.target.id[0].toUpperCase() === sideMove){
-        target_tile.style.border = '0.12rem solid yellow';
-        target_tile.style.width = '2.8rem';
-        target_tile.style.height = '2.8rem';
+        target_tile.style.border = '0.175vw solid yellow';
+        target_tile.style.width = '94%';
+        target_tile.style.height = '94%';
     } else {
-        target_tile.style.border = '0.12rem solid red';
-        target_tile.style.width = '2.8rem';
-        target_tile.style.height = '2.8rem';
+        target_tile.style.border = '0.175vw solid red';
+        target_tile.style.width = '94%';
+        target_tile.style.height = '94%';
     }
 }
 
@@ -19,8 +19,8 @@ function hover_leave_js(ev){
     let target_tile;
     target_tile = document.getElementById(ev.target.id);
     target_tile.style.border = 'none';
-    target_tile.style.width = '3rem';
-    target_tile.style.height = '3rem';
+    target_tile.style.width = '100%';
+    target_tile.style.height = '100%';
 }
 
 function Zamiana(){
@@ -39,9 +39,8 @@ function Zamiana(){
         }
     },300)
 }
-
 function ChangeofDocument(whatWasClicked){
-    for(let i=0;i<5;i++){
+    for(let i=0;i<Array_of_Documents.length;i++){
         if(document.getElementById(Array_of_Documents[i]).style.display !== 'none'){
             document.getElementById(Array_of_Documents[i]).style.display = 'none'
         }

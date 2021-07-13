@@ -9,13 +9,10 @@ function timeControl(minutesPerPlayer)
         let blackSeconds = minutesPerPlayer*600;
         let whiteTimer = document.getElementById('timer2');
         let blackTimer = document.getElementById('timer1');
-        
         whiteTimer.innerHTML = Math.floor(whiteSeconds/600)+' : '+
         ((whiteSeconds%600 > 100)? whiteSeconds%600/10 : '0'+whiteSeconds%600/10);
-
         blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+ 
         ((blackSeconds%600 > 100)? blackSeconds%600/10 : '0'+blackSeconds%600/10);
-
         // The World to zmienna, która zatrzymuje czas, 
         // nazwa jest nawiązaniem do części trzeciej Jojo's Bizzare Adventure
         let theWorld = setInterval(timePassing, 100);
@@ -43,17 +40,15 @@ function timeControl(minutesPerPlayer)
         }
     }
 }
-
 function play(time)
 {
     localStorage.setItem('time', time); 
     window.location.href='Graj/index.html';
 }
-
 function notStandard(){
     let chosenTime;
     chosenTime = parseFloat(prompt());
-    if(chosenTime !== 0 && typeof chosenTime === "number"){
+    if(chosenTime > 0 && chosenTime < 180 && typeof chosenTime === "number"){
         play(chosenTime);
     }
 }

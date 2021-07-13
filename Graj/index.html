@@ -9,13 +9,16 @@
     </head>
 
     <body>
-
-        <script src="Animation.js"></script>
-        <script src="moving.js"></script>
-        <div id="all">
+        <div id="toMenu">
+            <a href="../menu.html">&#8592;</a>
+        </div>
+        <div id="wrapper">
             <div id="timers">
-                <div id="timer1">Waiting...</div>
+                <div class="information">White</div>
                 <div id="timer2">Waiting...</div>
+                <div id="spliter">.</div>
+                <div id="timer1">Waiting...</div>
+                <div class="information">Black</div>
             </div>
             <ul id="chessBoard">
                 <div id="promote">
@@ -25,8 +28,9 @@
                     <img onclick="promotionChosen(4)">
                 </div>
             </ul>
-            <a href="../menu.html">Powrót do Menu</a>
         </div>
         <script src="timeControl.js"></script>
+        <script src="Animation.js"></script>
+        <script src="moving.js"></script>
     </body>
 </html>

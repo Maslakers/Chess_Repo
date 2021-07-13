@@ -136,7 +136,7 @@ main>img {
 .zadanka_wrapper{
     margin: 0 auto;
     width: 18rem;
-    height: 4rem;
+    height: 5rem;
     border: 6px solid gainsboro ;
     border-radius: 25px;
     transition: 0.7s;
@@ -151,15 +151,16 @@ main>img {
 }
 .zadanka_wrapper:hover{
     width: 22.5rem;
-    height: 5rem;
+    height: 5.5rem;
 }
 .zadanka_wrapper:hover>a{
     font-size: 3.6rem;
+    color: rgb(37, 200, 200);
 }
 .zadanka_header{
     margin: 0 auto;
     width: 36rem;
-    height: 4rem;
+    height: 5rem;
     border: 6px solid gainsboro ;
     border-radius: 25px;
     transition: 0.7s;
@@ -169,6 +170,7 @@ main>img {
     font-size: 3rem;
     color: rgb(100, 100, 100);
     text-shadow: 1px 1px gray;
+    padding: 0;
 }
 #autorzy{
     display: none;
@@ -187,5 +189,8 @@ main>img {
     font-size: 2rem;
 }
 #eater {
+    display: none;
+}
+#memorizer{
     display: none;
 }
