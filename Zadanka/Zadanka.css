@@ -159,3 +159,13 @@ a:hover{
     border: 2px solid red;
     box-sizing: border-box;
 }
+#opis{
+    position: absolute;
+    z-index: 100000;
+    background-color: sandybrown;
+    font-size: 24px;
+    text-align: center;
+    width: 440px;
+    height: 440px;
+    padding: 40px;
+}

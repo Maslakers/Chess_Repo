@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>the Walls</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Zadanka/Zadanka.css">
+</head>
+<body onload="generateBoard()">
+
+    <div id='panel'>
+        <a href="../menu.html">Powrót do menu</a>
+        <button onclick="start()">Start!</button>
+        <div id="pointCount">0</div>
+    </div>
+    <div id='board'>
+        <div id="opis">Jak grać?
+            <p>Dostaniesz do wyboru figurę, którą będziesz mógł się poruszać, nie ma limitu ruchów, poruszasz się, 
+                poprzez klikanie na pole, na które chcesz się ruszyć.
+            </p>
+            <p>
+                Celem gry jest zbić jak najwięcej czarnych pionków. Co zbicie każdego pionka pojawia się nowa ściana
+                na losowym polu, przez ściany nie można przechodzić, ani nie można ich w żaden sposób zbić. 
+            </p>
+        </div>
+    </div>
+    <script src="../Zadanka/generateBoard.js"></script>
+    <script src="start.js"></script>
+    <script src='../Zadanka/renderPieces.js'></script>
+    <script src="../Zadanka/generateObjects.js"></script>
+    <script src="legalMoves.js"></script>
+    <script src="selectFiles.js"></script>
+    <script src='../Zadanka/moveAnimation.js'></script>
+</body>
+</html>
