@@ -14,8 +14,12 @@ function selectFiles(selectedId)
 {
     if(firstSelectId===0 && document.getElementById(selectedId).firstChild !== null) //zaznacza figure na która klikniemy
     {
+        while(0<document.getElementsByClassName('legalFile').length)
+        document.getElementsByClassName('legalFile')[0].classList.remove('legalFile');
+
         firstSelectId = selectedId;
         document.getElementById(selectedId).firstChild.classList.add("selectedPiece");
+        selectLegalFiles(pieces[getPieceId(selectedId)]);
     }
     else if(firstSelectId !== 0)    //zaznacza pole, na które chcey się ruszyć figurą
     {
@@ -26,7 +30,7 @@ function selectFiles(selectedId)
         {
             if(document.getElementById(selectedId).firstChild == null || pieces[getPieceId(selectedId)].color !== color)     // zapobiega zbijaniu własnych figur
             {
-                if(!moving)
+                if(!moving && document.getElementById(selectedId).classList[1] == 'legalFile')
                 {
                     if(correctMoves(firstSelectId, selectedId))     //sprawdza czy ruch jest poprawny
                     {
@@ -36,6 +40,8 @@ function selectFiles(selectedId)
             } else selectNewPiece=true;
         }
         firstSelectId = 0;
+        while(0<document.getElementsByClassName('legalFile').length)
+        document.getElementsByClassName('legalFile')[0].classList.remove('legalFile');
         if(selectNewPiece) selectFiles(selectedId);
     }
 

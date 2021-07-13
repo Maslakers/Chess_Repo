@@ -1,7 +1,6 @@
 let moving = false;
 function moveAnimation(object, destination)
 {
-    console.log(object.x, object.y, destination)
     moving = true;
     let id=null;
     //suma klatek w animacji
@@ -22,13 +21,15 @@ function moveAnimation(object, destination)
     setTimeout(() => {pieces[getPieceId(object.x*10+object.y)].move(destination)}, 500);
 
     //ta funkcja przesuwa figure o kilka pixeli co 0,01 sekundy
+    let count = 0;
     function frame()
     {
-        if(xpos >= Math.floor(destination/10-1)*65)
+        if(count >= hopCount)
         {
             clearInterval(id);
         }else
         {
+            count+=1;
             xpos += xhop;
             ypos -= yhop;
             element.style.top = ypos + "px";

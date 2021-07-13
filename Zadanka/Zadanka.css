@@ -34,7 +34,7 @@
     left: 2px;
     top: 2px;
 }
-.lightSquare:hover .piece, .darkSquare:hover .piece{
+.lightSquare:hover .piece, .darkSquare:hover .piece, .legalFile .piece{
     left:0;
     top:0;
 }
@@ -154,4 +154,8 @@ a:hover{
     color: limegreen;
     display: inline-block;
     margin-left: 200px;
+}
+.legalFile{
+    border: 2px solid red;
+    box-sizing: border-box;
 }

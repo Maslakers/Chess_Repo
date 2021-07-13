@@ -1,8 +1,8 @@
 let completedPuzzles = [];
 function database()
 {
-    let id = Math.floor(Math.random()*6);
-    if(completedPuzzles.length == 6) console.log("ukończono wszystkie zadania"); else
+    let id = Math.floor(Math.random()*8);
+    if(completedPuzzles.length == 8) console.log("ukończono wszystkie zadania"); else
     for(let i=0; i<completedPuzzles.length; i++)
     {
         if(completedPuzzles[i] == id) 
@@ -21,9 +21,9 @@ function database()
         case 3: fen="r3r1k1/p2q3p/1p4p1/8/3pN1n1/PP1P4/6PP/R2QR2K w"; solverMoves = [4174, 5466, 6674]; opponentMoves = [4774, 7877]; break;
         case 4: fen="2r2b2/1p3p1k/7p/1P5q/3BNPn1/1P4Q1/3R2P1/2r2RK1 w"; solverMoves = [7374, 7161, 6162, 5466, 6674]; opponentMoves = [3161, 3831, 8574, 8788]; break;
         case 5: fen="Q7/p1p1q1pk/3p2rp/4n3/3bP3/7b/PP3PPK/R1B2R2 b"; solverMoves = [1627, 1211, 4224, 4436]; opponentMoves = [8111, 6824, 3858]; break;
-        case 6: fen="6k1/6n1/3N1Q2/BppP2Pb/2p1K3/2P3q1/8/8 w"; break;
-        case 7: fen="4r1k1/1bbN1p2/p5pp/2p4q/P1B3nP/2P1P1P1/2N2P2/3Q1RK1 w"; break;
-        case 8: fen="8/2Q5/5pkp/1p3bp1/3q1P2/KP2N1P1/P3R3/1r6 w"; break;
+        case 6: fen="4r3/p4pkp/q7/3Bbb2/P2P1ppP/2N3n1/1PP2KPR/R1BQ4 b"; solverMoves = [8338, 4455, 4146, 4647]; opponentMoves = [5838, 6846, 3856]; break;
+        case 7: fen="8/6pk/3pp2p/4p1nP/1P2P3/3P1rP1/4qPK1/2QN3R b"; solverMoves = [3626, 4736, 3616, 2436]; opponentMoves = [2726, 2617, 1728]; break;
+        case 8: fen="2k4r/ppp2p2/2b2B2/7p/6pP/2P1q1bP/PP3N2/R4QK1 b"; solverMoves = [2617, 4635, 3526, 2627] ; opponentMoves = [2817, 1728, 3827]; break;
         case 9: fen="1b1n2k1/1p3ppp/8/3N1n1q/1PB5/2P2N2/6PP/1Q5K w"; break;
         case 10: fen="8/1b4k1/p2rq2p/2p3p1/8/2P1N1QP/1PR2P2/6K1 w"; break;
         case 11: fen="1Q6/2r3pk/6bp/3pq3/p4N2/2P3P1/PP6/K1R5 w"; break;
