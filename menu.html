@@ -8,24 +8,27 @@
     </head>
 
     <body>
-        <div id="stripe_box">
+        <!-- <div id="stripe_box">
             <div id="stripe1"></div>
-        </div>
+        </div> -->
         <div id="menu">
             <ul>
+                <li id="buttonForLister"><a onclick="ShowOptions()">Gry Szachowe &#9660;</a></li>
                 <li><a onclick="ChangeofDocument(1)">Strona Główna</a></li>
                 <li><a onclick="ChangeofDocument(2)">Zagraj</a></li>
-                <li><a onclick="ChangeofDocument(3)">Zadanka</a></li>
-                <li><a onclick="ChangeofDocument(4)">o Autorach</a></li>
-                <li><a onclick="ChangeofDocument(5)">Eater</a></li>
-                <li><a onclick="ChangeofDocument(6)">Memorizer</a></li>
+                <li><a onclick="ChangeofDocument(3)">o Autorach</a></li>
+                <ul id="lister">
+                    <li><a href="Zadanka/Zadanka.html">Zadanka</a></li>
+                    <li><a href="Eater/eater.html">Eater</a></li>
+                    <li><a href="Memorizer/memorizer.html">Memorizer</a></li>
+                </ul>
             </ul>
         </div>
         <div id="container">
             <main id="main">
                 <input type="button" onclick="Zamiana()" id="przycisk">
                 <img src="szachownica_svg/Garry_1.jpg">
-                <img src="szachownica_svg/Epic_chuck_Norris.jpg">
+                <img id="ChuckNorrus" src="szachownica_svg/Epic_chuck_Norris.jpg">
                 <img src="szachownica_svg/Garry_2.jpg">
             </main>
             <div id="ukryty_przycisk">
@@ -40,8 +43,7 @@
                 <button class="k kontr" onclick="play(30)"><p class="biggerP">30+0</p><p class="smallerP">Classical</p></button>
                 <button class="k kontr" onclick="play(45)"><p class="biggerP">45+0</p><p class="smallerP">Classical</p></button>
                 <button class="k kontr" onclick="play(60)"><p class="biggerP">60+0</p><p class="smallerP">Classical</p></button>
-                <button class="k kontr" onclick="notStandard()"><p id="notStandard">Niestandarodwa</p></button>
-                
+                <button class="k kontr" onclick="notStandard()"><p id="notStandard">Niestandarodwa</p></button>              
             </div>
             <div id="zadanka">
                 <div class="zadanka_header"><p>Zadanka</p></div>

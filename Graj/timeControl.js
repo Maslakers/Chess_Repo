@@ -48,7 +48,7 @@ function play(time)
 function notStandard(){
     let chosenTime;
     chosenTime = parseFloat(prompt());
-    if(chosenTime > 0 && chosenTime < 180 && typeof chosenTime === "number"){
+    if(chosenTime > 0 && chosenTime <= 180 && typeof chosenTime === "number"){
         play(chosenTime);
     }
 }

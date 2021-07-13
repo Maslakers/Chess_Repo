@@ -1,5 +1,6 @@
 
-let Array_of_Documents = ['main','czas','zadanka','autorzy','eater','memorizer']
+let Showing = false;
+let Array_of_Documents = ['main','czas','autorzy'];
 
 function hover_js(ev){
     let target_tile;
@@ -46,4 +47,18 @@ function ChangeofDocument(whatWasClicked){
         }
     }
     document.getElementById(Array_of_Documents[whatWasClicked-1]).style.display = 'block';
+    Showing = true;
+    ShowOptions();
+}
+
+function ShowOptions() {
+    let listToShow = document.getElementById('lister');
+    if(!Showing){
+        listToShow.style.display = 'block';
+        Showing = true;
+    } else {
+        listToShow.style.display = 'none';
+        Showing = false;
+    }
+
 }
