@@ -108,8 +108,9 @@
 }
 #panel{
     display: inline-block;
-    width: 30%;
+    width: 25%;
     font-size: 24px;
+    padding: 10px;
 }
 #bierki, #points1{
     display: inline-block;
@@ -160,9 +161,11 @@ a:hover{
     box-sizing: border-box;
 }
 #opis{
+    color: rgb(50, 50, 50);
+    text-shadow: 1px 1px gray;
     position: absolute;
     z-index: 100000;
-    background-color: sandybrown;
+    background-color: rgb(190, 174, 159);
     font-size: 24px;
     text-align: center;
     width: 440px;
