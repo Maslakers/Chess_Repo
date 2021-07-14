@@ -5,17 +5,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Gra w jss</title>
     </head>
 
     <body>
-
-        <script src="Animation.js"></script>
-        <script src="moving.js"></script>
-        <div id="all">
+        <div id="toMenu">
+            <a href="../menu.html">&#8592;</a>
+        </div>
+        <div id="wrapper">
             <div id="timers">
-                <div id="timer1">Waiting...</div>
-                <div id="timer2">Waiting...</div>
+                <div class="information">White</div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                <div class="information">Black</div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
             </div>
             <ul id="chessBoard">
                 <div id="promote">
@@ -25,8 +32,9 @@
                     <img onclick="promotionChosen(4)">
                 </div>
             </ul>
-            <a href="../menu.html">Powrót do Menu</a>
         </div>
         <script src="timeControl.js"></script>
+        <script src="Animation.js"></script>
+        <script src="moving.js"></script>
     </body>
 </html>

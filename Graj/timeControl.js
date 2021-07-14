@@ -1,4 +1,5 @@
 let timerStarted = false;
+let minutesPerPlayer = 3;
 function timeControl(minutesPerPlayer)
 {
     if(!timerStarted)
@@ -7,14 +8,22 @@ function timeControl(minutesPerPlayer)
         console.log("setting time control to: "+minutesPerPlayer)
         let whiteSeconds = minutesPerPlayer*600;
         let blackSeconds = minutesPerPlayer*600;
-        let whiteTimer = document.getElementById('timer2');
-        let blackTimer = document.getElementById('timer1');
-        
-        whiteTimer.innerHTML = Math.floor(whiteSeconds/600)+' : '+
-        ((whiteSeconds%600 > 100)? whiteSeconds%600/10 : '0'+whiteSeconds%600/10);
+        let percentage_white;
+        let percentage_black;
+        let Timers = document.getElementsByClassName('progress-bar');
 
-        blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+ 
-        ((blackSeconds%600 > 100)? blackSeconds%600/10 : '0'+blackSeconds%600/10);
+        // whiteTimer.innerHTML = Math.floor(whiteSeconds/600)+' : '+
+        // ((whiteSeconds%600 > 100)? whiteSeconds%600/10 : '0'+whiteSeconds%600/10);
+        // blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+ 
+        // ((blackSeconds%600 > 100)? blackSeconds%600/10 : '0'+blackSeconds%600/10);
+
+        percentage_white = Math.floor((whiteSeconds * 100) / (minutesPerPlayer*600));
+        percentage_black = Math.floor((blackSeconds * 100) / (minutesPerPlayer*600));
+        Timers[0].style.width = percentage_white + '%';
+
+
+        Timers[1].style.width = percentage_white + '%';
+
 
         // The World to zmienna, która zatrzymuje czas, 
         // nazwa jest nawiązaniem do części trzeciej Jojo's Bizzare Adventure
@@ -31,29 +40,31 @@ function timeControl(minutesPerPlayer)
                 if(sideMove === 'W')
                 {
                     whiteSeconds -= 1;
-                    whiteTimer.innerHTML = Math.floor(whiteSeconds/600)+' : '+
-                    ((whiteSeconds%600 > 100)? whiteSeconds%600/10 : '0'+whiteSeconds%600/10);
+                    percentage_white = Math.floor((whiteSeconds * 100) / (minutesPerPlayer*600));
+                    Timers[0].style.width = percentage_white + '%';
+                    // whiteTimer.innerHTML = Math.floor(whiteSeconds/600)+' : '+
+                    // ((whiteSeconds%600 > 100)? whiteSeconds%600/10 : '0'+whiteSeconds%600/10);
                 }else
                 {
                     blackSeconds -= 1;
-                    blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+ 
-                    ((blackSeconds%600 > 100)? blackSeconds%600/10 : '0'+blackSeconds%600/10);
+                    percentage_black = Math.floor((blackSeconds*100) / (minutesPerPlayer*600));
+                    Timers[1].style.width = percentage_black + '%';
+                    // blackTimer.innerHTML = Math.floor(blackSeconds/600)+' : '+ 
+                    // ((blackSeconds%600 > 100)? blackSeconds%600/10 : '0'+blackSeconds%600/10);
                 }
             }
         }
     }
 }
-
 function play(time)
 {
     localStorage.setItem('time', time); 
     window.location.href='Graj/index.html';
 }
-
 function notStandard(){
     let chosenTime;
     chosenTime = parseFloat(prompt());
-    if(chosenTime !== 0 && typeof chosenTime === "number"){
+    if(chosenTime > 0 && chosenTime <= 180 && typeof chosenTime === "number"){
         play(chosenTime);
     }
 }

@@ -8,24 +8,29 @@
     </head>
 
     <body>
-        <div id="stripe_box">
+        <!-- <div id="stripe_box">
             <div id="stripe1"></div>
-        </div>
+        </div> -->
         <div id="menu">
             <ul>
+                <li id="buttonForLister"><a onclick="ShowOptions()">Gry Szachowe &#9660;</a></li>
                 <li><a onclick="ChangeofDocument(1)">Strona Główna</a></li>
                 <li><a onclick="ChangeofDocument(2)">Zagraj</a></li>
-                <li><a onclick="ChangeofDocument(3)">Zadanka</a></li>
-                <li><a onclick="ChangeofDocument(4)">o Autorach</a></li>
-                <li><a onclick="ChangeofDocument(5)">Eater</a></li>
+                <li><a onclick="ChangeofDocument(3)">o Autorach</a></li>
+                <ul id="lister">
+                    <li><a href="Zadanka/Zadanka.html">Zadanka</a><a class="popUpClouds" id="popUpCloud1">zdobądź figurę, lub zamatuj przeciwnika, aby zaprowadzić swoją stronę do wygranej</a></li>
+                    <li id="nth1"><a href="Eater/eater.html">Eater</a><a class="popUpClouds" id="popUpCloud2">Zjedz jak najwięcej figur przeciwnika, zanim skończy się czas</a></li>
+                    <li id="nth2"><a href="Memorizer/memorizer.html">Memorizer</a><a class="popUpClouds" id="popUpCloud3">Zapamiętaj losową pozycję i ustaw figury na ich polach</a></li>
+                    <li><a href="TheWalls/theWalls.html">Murki</a><a class="popUpClouds" id="popUpCloud4">Zbijaj kolejne figury, ale pamiętaj jak natrafisz na murek to będzie boleć cię głowa</a></li>
+                </ul>
             </ul>
         </div>
         <div id="container">
             <main id="main">
                 <input type="button" onclick="Zamiana()" id="przycisk">
-                <img src="szachownica_svg/Garry_1.jpg">
-                <img src="szachownica_svg/Epic_chuck_Norris.jpg">
-                <img src="szachownica_svg/Garry_2.jpg">
+                <img class="Garrys" src="szachownica_svg/Garry_1.jpg">
+                <img id="ChuckNorrus" src="szachownica_svg/Epic_chuck_Norris.jpg">
+                <img class="Garrys" src="szachownica_svg/Garry_2.jpg">
             </main>
             <div id="ukryty_przycisk">
                 <img src="szachownica_svg/Magnus_szewczyk.jpg">
@@ -39,13 +44,7 @@
                 <button class="k kontr" onclick="play(30)"><p class="biggerP">30+0</p><p class="smallerP">Classical</p></button>
                 <button class="k kontr" onclick="play(45)"><p class="biggerP">45+0</p><p class="smallerP">Classical</p></button>
                 <button class="k kontr" onclick="play(60)"><p class="biggerP">60+0</p><p class="smallerP">Classical</p></button>
-                <button class="k kontr" onclick="notStandard()"><p id="notStandard">Niestandarodwa</p></button>
-                
-            </div>
-            <div id="zadanka">
-                <div class="zadanka_header"><p>Zadanka</p></div>
-                <div class="zadanka_wrapper"><a href="Zadanka/Zadanka.html">Zagraj</a></div>
-                <div class="zadanka_wrapper"><a href="Zadanka/lista.html">Wybierz</a></div>
+                <button class="k kontr" onclick="notStandard()"><p id="notStandard">Niestandarodwa</p></button>              
             </div>
             <div id="autorzy">
                 <div>
@@ -77,12 +76,6 @@
                     </article>
                 </div>
             </div>
-            <div id="eater">
-                <div class="zadanka_header"><p>Eater</p></div>
-                <div class="zadanka_wrapper"><a href="Eater/eater.html">Zagraj</a></div>
-                <div class="zadanka_wrapper"><a href="Zadanka/lista.html">Wybierz</a></div>
-            </div>
-            <div><a href="Memorizer/memorizer.html">Memorizer</a></div>
         </div>
         <script src="Graj/timeControl.js"></script>
         <script src="Graj/Animation.js"></script>
