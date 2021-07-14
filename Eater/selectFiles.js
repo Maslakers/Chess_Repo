@@ -1,4 +1,5 @@
 let color;
+let points = 0;
 function getPieceId(place) //funkcja, do znajdywania id bierki po jej koordynatach
 {
     for(let i=0; i<pieces.length; i++)
@@ -15,14 +16,18 @@ function selectFiles(selectedId)
     {
         if(document.getElementById(selectedId).firstChild == null || 
         pieces[getPieceId(selectedId)].color !== color) //sprawdza czy zaznaczono czarna bierke
-
-        if(correctSelection(selectedId))
         {
-            document.getElementById(selectedId).firstChild.classList.add("selectedPiece");
-        }
-        else
-        {
-            document.getElementById(selectedId).firstChild.classList.add("incorrectPiece");
+            timer();
+            if(correctSelection(selectedId))
+            {
+                document.getElementById(selectedId).firstChild.classList.add("selectedPiece");
+                points++;
+                document.getElementById('pointCount').innerHTML = points;
+            }
+            else
+            {
+                document.getElementById(selectedId).firstChild.classList.add("incorrectPiece");
+            }
         }
     }
 }

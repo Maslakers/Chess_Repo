@@ -54,7 +54,7 @@ function play(piece)
     if(!playing)
     {
         document.getElementById('panel').removeChild(document.getElementById('choice'))
-        let timeLeft = 3;
+        let timeLeft = 60;
         id = setInterval(time, 1000)
         function time()
         {

@@ -144,7 +144,7 @@ a:hover{
     background-color: #b58863;
     transition: background-color 0.5s;
 }
-#pointCount{
+#pointCount, #localRecord{
     font-size: 48px;
     border: 2px black solid;
     border-radius: 10px;

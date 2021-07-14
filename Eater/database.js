@@ -3,7 +3,7 @@ let completedPuzzles = [];
 function database()
 {
     let id = Math.floor(Math.random()*11);
-    if(completedPuzzles.length == 11) console.log("ukończono wszystkie zadania"); else
+    if(completedPuzzles.length >= 11) console.log("ukończono wszystkie zadania"); else
     for(let i=0; i<completedPuzzles.length; i++)
     {
         if(completedPuzzles[i] == id) 

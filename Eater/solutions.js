@@ -9,10 +9,19 @@ function correctSelection(selectedId)
             if(correctFiles.length == 0)
             {
                 document.getElementById('beforeCorrect').id = 'nice';
-                setTimeout(loadPuzzle, 1500);
+                setTimeout(again, 500);
             }
             return true;
         }
     }
     return false;
+}
+function again()
+{
+    if(playing)
+    {
+        started = false;
+        reloding = true;
+        loadPuzzle();
+    }
 }
