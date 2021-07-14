@@ -229,3 +229,25 @@ main img {
     text-decoration: none;
     color: rgb(100, 100, 100);
 }
+#lister > li > .popUpClouds{
+    position: absolute;
+    background-color: gainsboro;
+    font-size: 1vw;
+    text-shadow: 0.05vw 0.05vw gray;
+    display: none;
+}
+#lister > li:first-child:hover > #popUpCloud1{
+    display: block;
+    margin-left: 13.5vw;
+    top: 0vh;
+}
+#lister > li:nth-child(even):hover > #popUpCloud2{
+    display: block;
+    margin-left: 13.5vw;
+    top: 11.5vh;
+}
+#lister > li:last-child:hover > #popUpCloud3{
+    display: block;
+    margin-left: 13.5vw;
+    top: 22vh;
+}

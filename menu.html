@@ -18,9 +18,9 @@
                 <li><a onclick="ChangeofDocument(2)">Zagraj</a></li>
                 <li><a onclick="ChangeofDocument(3)">o Autorach</a></li>
                 <ul id="lister">
-                    <li><a href="Zadanka/Zadanka.html">Zadanka</a></li>
-                    <li><a href="Eater/eater.html">Eater</a></li>
-                    <li><a href="Memorizer/memorizer.html">Memorizer</a></li>
+                    <li><a href="Zadanka/Zadanka.html">Zadanka</a><a class="popUpClouds" id="popUpCloud1">zdobądź figurę, lub zamatuj przeciwnika, aby zaprowadzić swoją stronę do wygranej</a></li>
+                    <li><a href="Eater/eater.html">Eater</a><a class="popUpClouds" id="popUpCloud2">Zjedz jak najwięcej figur przeciwnika, zanim skończy się czas</a></li>
+                    <li><a href="Memorizer/memorizer.html">Memorizer</a><a class="popUpClouds" id="popUpCloud3">Zapamiętaj losową pozycję i ustaw figury na ich polach</a></li>
                 </ul>
             </ul>
         </div>
@@ -44,11 +44,6 @@
                 <button class="k kontr" onclick="play(45)"><p class="biggerP">45+0</p><p class="smallerP">Classical</p></button>
                 <button class="k kontr" onclick="play(60)"><p class="biggerP">60+0</p><p class="smallerP">Classical</p></button>
                 <button class="k kontr" onclick="notStandard()"><p id="notStandard">Niestandarodwa</p></button>              
-            </div>
-            <div id="zadanka">
-                <div class="zadanka_header"><p>Zadanka</p></div>
-                <div class="zadanka_wrapper"><a href="Zadanka/Zadanka.html">Zagraj</a></div>
-                <div class="zadanka_wrapper"><a href="Zadanka/lista.html">Wybierz</a></div>
             </div>
             <div id="autorzy">
                 <div>
@@ -79,16 +74,6 @@
                             <li>Tak istnieje</li>
                     </article>
                 </div>
-            </div>
-            <div id="eater">
-                <div class="zadanka_header"><p>Eater</p></div>
-                <div class="zadanka_wrapper"><a href="Eater/eater.html">Zagraj</a></div>
-                <div class="zadanka_wrapper"><a href="Eater/lista.html">Wybierz</a></div>
-            </div>
-            <div id="memorizer">
-                <div class="zadanka_header"><p>Memorizer</p></div>
-                <div class="zadanka_wrapper"><a href="Memorizer/memorizer.html">Zagraj</a></div>
-                <div class="zadanka_wrapper"><a href="Memorizer/lista.html">Wybierz</a></div>
             </div>
         </div>
         <script src="Graj/timeControl.js"></script>
