@@ -77,10 +77,19 @@ main img {
     display: inline-block;
     margin-left: 5vw;
     border: 0.4vw solid gainsboro;
+    /* transition: width 0.35s, height 0.35s;  */
 }
 #ChuckNorrus {
     width: 33vh;
 }
+/* #ChuckNorrus:hover {
+    width: 39.6vh;
+    height: 60vh;
+} */
+/* main > .Garrys:hover {
+    height: 60vh;
+    width: 48vh;
+} */
 #przycisk {
     position: absolute;
     top: 4vh;
