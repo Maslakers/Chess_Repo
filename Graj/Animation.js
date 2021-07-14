@@ -7,12 +7,12 @@ function hover_js(ev){
     target_tile = document.getElementById(ev.target.id);
     if(ev.target.id[0].toUpperCase() === sideMove){
         target_tile.style.border = '0.175vw solid yellow';
-        target_tile.style.width = '94%';
-        target_tile.style.height = '94%';
+        target_tile.style.width = '99.5%';
+        target_tile.style.height = '99.5%';
     } else {
         target_tile.style.border = '0.175vw solid red';
-        target_tile.style.width = '94%';
-        target_tile.style.height = '94%';
+        target_tile.style.width = '99.5%';
+        target_tile.style.height = '99.5%';
     }
 }
 

@@ -40,7 +40,7 @@ body {
 }
 #timers{
     width: 40%;
-    aspect-ratio: 10/0.6;
+    aspect-ratio: 10/1.4;
     border: saddlebrown 0.2vw solid;
     border-radius: 2vw;
     position: relative;
@@ -49,7 +49,7 @@ body {
     margin-top: 0.7vw;
     
 }
-#timers div{
+#timers div:nth-child(odd){
     border: 0.1vw solid saddlebrown;
     margin: 0 auto;
     margin-top: 0.4vw;
@@ -57,17 +57,16 @@ body {
     display: block;
     float: left;
 }
-#timer1{
-    font-size: 1vw;
-    width: 15vw;
-    color: rgb(180, 105, 60);
-    text-shadow: 0.03vw 0.03vw rgb(140, 90, 60);
+#timers > .progress {
+    display: block;
+    margin-top: 0.4vw;
+    margin-bottom: 0.3vw;
+    height: 2vw;
+    width: 90%;
 }
-#timer2{
-    width: 15vw;
-    color: rgb(180, 105, 60);
-    text-shadow: 0.03vw 0.03vw rgb(140, 90, 60);
-    font-size: 1vw;
+#timers > .progress > .progress-bar{
+    height: 1.25vw;
+    border:none
 }
 .information{
     font-size: 1vw;
@@ -75,12 +74,7 @@ body {
     width: 3vw;
     color: rgb(180, 105, 60);
     text-shadow: 0.03vw 0.03vw rgb(140, 90, 60);
-}
-#spliter{
-    width: 0.2vw;
-    font-size: 1vw;
-    color: saddlebrown;
-    background-color: saddlebrown;
+    border-radius: 20px;
 }
 #promote{
     display: none;
