@@ -2,6 +2,11 @@ let timerStarted=false;
 let finishedPlacing = false;
 let checked = false;
 let timeLeft;
+let openNextPuzzle = false;
+let tryAgain = false;
+
+if(localStorage.getItem('memrecord') == null) localStorage.setItem('memrecord', 0)
+document.getElementById('localRecord').innerHTML = localStorage.getItem('memrecord');
 function timerStart()
 {
     let theWorld;
@@ -11,7 +16,7 @@ function timerStart()
         timerStarted = true;
         let element = document.getElementById("timer");
         // ilość czasu w dziesiętnych sekundy
-        timeLeft = 200;
+        timeLeft = 600;
         // The World to zmienna, która zatrzymuje czas, 
         // nazwa jest nawiązaniem do części trzeciej Jojo's Bizzare Adventure
         theWorld = setInterval(timePassing, 100);
@@ -20,8 +25,22 @@ function timerStart()
             if(timeLeft <= 0)
             {
                 clearInterval(theWorld);
-                placePieces();
-                finishedPlacing = true;
+                let endScreen = document.createElement('div');
+                endScreen.id = 'opis';
+                endScreen.innerHTML = '<br><br><br><br><br>Koniec czasu! <br><br> Twój wynik: '+ totalPoints + 
+                ' p. <br><br> Wciśnij przycis Start! aby zagrać ponownie';
+                document.getElementById('board').appendChild(endScreen)
+                timeLeft = 0;
+                if(localStorage.getItem('memrecord') != null)
+                {
+                    if(localStorage.getItem('memrecord') < totalPoints)
+                    localStorage.setItem('memrecord', totalPoints);
+                }
+                else localStorage.setItem('memrecord', 0)
+                document.getElementById('localRecord').innerHTML = localStorage.getItem('memrecord');
+                totalPoints = 0;
+                document.getElementById('points1').innerHTML = 0;
+                tryAgain = true;
             }else
             {
                 timeLeft--;
@@ -31,17 +50,31 @@ function timerStart()
         checked = false;
     } else if(!finishedPlacing)
     {
-        timeLeft = 1;
         placePieces();
         finishedPlacing = true;
-    } else
+    } else if(!openNextPuzzle)
     {
+        document.getElementById('panel').removeChild(document.getElementById('bierki'))
+        let bierki = document.createElement('div')
+        bierki.id = 'bierki'
+        document.getElementById('panel').appendChild(bierki)
         check();
-        timerStarted = false;
-        finishedPlacing = false;
         checked = true;
         solving = false;
         holdedPieceType = null;
+        openNextPuzzle = true;
+    } else
+    {
+        openNextPuzzle = false;
+        finishedPlacing = false;
+        if(tryAgain)
+        {
+            tryAgain = false;
+            timerStarted = false;
+            finishedPlacing = false;
+            timerStart();
+        } else
+        loadPuzzle()
     }
 }
 let solving = false;

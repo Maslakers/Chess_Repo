@@ -1,6 +1,7 @@
+let totalPoints = 0;
 function check()
 {
-    let pointcount=0;
+    let pointcount = 0;
     for(let i=0; i<64; i++)
     {
         let id = Math.floor((i)/8+1)*10 + (i%8)+1;
@@ -16,7 +17,7 @@ function check()
     document.getElementById('points2').innerHTML = '+' + pointcount;
     document.getElementById('points1').innerHTML = pointcount + 
     parseInt(document.getElementById('points1').innerHTML);
-
+    totalPoints += pointcount;
     for(let i=0; i<document.getElementsByClassName('piece').length; i++)
         document.getElementsByClassName('piece')[i].style.display = 'block';
     holding = false;
